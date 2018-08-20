@@ -66,6 +66,7 @@ begin
       counter_max     => counter_max,
       pipeline_output => false)
     port map (
+      clk_in     => clk_out,
       counter_in => counter_in,
 
       clk_out     => clk_out,

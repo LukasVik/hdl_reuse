@@ -1,3 +1,6 @@
+create_clock -name clk_write -period 5 [get_ports clk_write]
+create_clock -name clk_read -period 4 [get_ports clk_read]
+
 # Create an always failing constraint for data paths between two clocks.
 # Unintentional clock crossings will fail timing with ~100 ns thanks to this.
 # Clock crossing which are intentional should be handled with a "set_false_path" statement.

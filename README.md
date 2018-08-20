@@ -22,7 +22,7 @@ The authors believe in [PEP 20: The Zen of Python](https://www.python.org/dev/pe
 
 ### Requirements
 In order to use the package you will need
-* Python 3.4+
+* Python 3.5+
 * [VUnit](https://vunit.github.io/) in your `PYTHONPATH`
 * A functioning VHDL simulator in your `PATH`
 
@@ -32,4 +32,3 @@ To run the bundled tests you must have
 
 # License
 This project is released under the terms of the MIT License.
-
