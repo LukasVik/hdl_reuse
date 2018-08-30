@@ -59,10 +59,20 @@ class TestGetModules(unittest.TestCase):
         create_directory(join(self._modules_folder, "c"))
 
     def test_name_filtering(self):
-        modules = get_modules(self._modules_folders, ["a", "b"])
+        modules = get_modules(self._modules_folders, names=["a", "b"])
         assert len(modules) == 2
         for module in modules:
             assert module.name != "c"
+
+    def test_library_name_does_not_have_lib_suffix(self):
+        modules = get_modules(self._modules_folders)
+        for module in modules:
+            assert len(module.library_name) == 1  # I.e. does not end with "_lib"
+
+    def test_library_name_has_lib_suffix(self):
+        modules = get_modules(self._modules_folders, library_name_has_lib_suffix=True)
+        for module in modules:
+            assert module.library_name.endswith("_lib")
 
     def test_stray_file_can_exist_in_modules_folder_without_error(self):
         create_file(join(self._modules_folder, "text_file.txt"))
